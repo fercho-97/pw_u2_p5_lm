@@ -1,24 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <!--  <img alt="Vue logo" src="./assets/logo.png" />
   <Contador titulo="Contador1" :valor="10" />
   <Contador titulo="Contador2" :valor="operacion()"/>
   <Contador titulo="Contador3"/>
-  <h2>Titulo en padre</h2>
+  <h2>Titulo en padre</h2> -->
+<img alt="Vue logo" src="./assets/logo.png" />
+  <Calculadora />
 </template>
 
 <script>
 import Contador from "./components/Contador.vue";
+import Calculadora from "./components/Calculadora.vue";
 
 export default {
   name: "App",
   components: {
     Contador,
+    Calculadora,
   },
-  methods:{
-    operacion(){
-      return 5+10*3;
+  methods: {
+    operacion() {
+      return 5 + 10 * 3;
     },
-  }
+  },
 };
 </script>
 
