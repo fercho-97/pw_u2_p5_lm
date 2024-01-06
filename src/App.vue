@@ -4,19 +4,19 @@
   <Contador titulo="Contador2" :valor="operacion()"/>
   <Contador titulo="Contador3"/>
   <h2>Titulo en padre</h2> -->
-<img alt="Vue logo" src="./assets/logo.png" />
-  <Calculadora />
+
+  <pregunta />
 </template>
 
 <script>
-import Contador from "./components/Contador.vue";
-import Calculadora from "./components/Calculadora.vue";
+
+import Pregunta from "./components/Pregunta.vue";
 
 export default {
   name: "App",
   components: {
-    Contador,
-    Calculadora,
+    Pregunta
+
   },
   methods: {
     operacion() {
