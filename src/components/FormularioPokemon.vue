@@ -25,7 +25,12 @@ export default {
       const { name, weight, base_experience } = await fetch(
         "https://pokeapi.co/api/v2/pokemon/" + this.pkID
       ).then((r) => r.json());
-    
+      console.log(name);
+      console.log(weight);
+      console.log(base_experience);
+      this.nombre = name;
+      this.peso = weight;
+      this.exBase = base_experience;
     },
   },
 };

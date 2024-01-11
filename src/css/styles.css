@@ -1,9 +1,4 @@
-
-body{
-    background-color: black;
-}
- /* 
- p{
+p{
 color: #000;
 
 }
@@ -34,6 +29,13 @@ body {
     align-items: center;
 
 
-}*/
+}
 
+input{
+
+    font-size: 15px;
+    border-radius: 7px;
+    width: 100px;
+    height: 20px;
+}
 

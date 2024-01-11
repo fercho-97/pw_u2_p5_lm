@@ -4,22 +4,21 @@
   <Contador titulo="Contador2" :valor="operacion()"/>
   <Contador titulo="Contador3"/>
   <h2>Titulo en padre</h2>
-  <Formulario />
+   <Pregunta />
   
    -->
-  <Pregunta />
+   <Formulario />
+ 
 </template>
 
 <script>
 
-import Pregunta from "./components/Pregunta.vue";
 import Formulario from "./components/FormularioPokemon.vue"
 
 export default {
   name: "App",
   components: {
     Formulario,
-    Pregunta
 
   },
   methods: {
