@@ -1,0 +1,39 @@
+
+body{
+    background-color: black;
+}
+ /* 
+ p{
+color: #000;
+
+}
+
+p:before {
+
+    content: attr(type);
+    display: block;
+    margin: 10px 5px;
+    font-size: 17px;
+    color: #2e87c2;
+}
+
+.form {
+    width: 340px;
+    height: 200px;
+    background-color: #f77575;
+    border-radius: 8px;
+    padding: 20px 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 50px -18px #000;
+}
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}*/
+
+
