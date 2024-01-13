@@ -7,25 +7,18 @@
    <Pregunta />
   
    -->
-   <Formulario />
- 
+  <PokemonPage/>
 </template>
 
 <script>
-
-import Formulario from "./components/FormularioPokemon.vue"
+import PokemonPage from "./pages/PokemonPage.vue";
 
 export default {
   name: "App",
   components: {
-    Formulario,
-
+    PokemonPage,
   },
-  methods: {
-    operacion() {
-      return 5 + 10 * 3;
-    },
-  },
+  
 };
 </script>
 
