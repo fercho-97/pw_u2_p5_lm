@@ -1,16 +1,36 @@
 <template>
   <div class="opciones-container">
     <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
+      <li v-for="nombre in listado" :key="nombre">
+        <p>
+          {{nombre.apellido}}
+        </p>
+      </li> 
     </ul>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    listado: {
+      type: Array,
+      requiered: true,
+    },
+  },
+  data() {
+    return {
+      lista: this.listado,
+    };
+  },
+  methods:{
+
+    ejecutar(){
+      console.log();
+      console.log("los nombres son:");
+    }
+  }
+};
 </script>
 
 <style>

@@ -1,44 +1,43 @@
-const obtenerIdPokemon=()=>{
+const obtenerAleatorio = (min, max) => {
 
-const pokemonArr = [];
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
-for (let i = 0; i < 4; i++) {
+const obtenerIdPokemon = () => {
 
-    pokemonArr.push(obtenerAleatorio(1,600));
+    const pokemonArr = [];
+
+    for (let i = 0; i < 4; i++) {
+
+        pokemonArr.push(obtenerAleatorio(1, 600));
+    }
+    return pokemonArr;
 
 }
 
-console.table(pokemonArr);
-
-return pokemonArr;
-
-
+async function consumirApi(id) {
+    const { name } = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(result => result.json());
+    return name;
 }
 
-const  obtenerNombresPokemons=()=>{
+const obtenerNombresPokemons = async (vector) => {
 
+    const vectorNombres = [];
 
+    for (let i = 0; i < vector.length; i++) {
+        const name = await consumirApi(vector[i]);
+        vectorNombres.push({apellido:name, valor: vector[i]});
+        
+    }
 
+    console.table(vectorNombres)
+    return vectorNombres;
+  
 }
 
-function consumirApi(id){
+const obtenerIdPokemonFachada = async () => {
 
-    
-}
-
-
-const obtenerAleatorio=(min, max)=>{
-
-    return Math.floor(Math.random()*(max-min+1)+min);
-}
-
-
-const obtenerIdPokemonFachada=()=>{
-
-
-    obtenerIdPokemon();
-    obtenerAleatorio();
-
+   return  await obtenerNombresPokemons(obtenerIdPokemon());
 }
 
 export default obtenerIdPokemonFachada;
