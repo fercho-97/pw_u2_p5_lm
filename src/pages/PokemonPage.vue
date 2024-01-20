@@ -1,16 +1,14 @@
 <template>
   <h1>Adivina el pokemon</h1>
-  <PokemonImagen :pokemonID="mandarfoto" :showPokemon="false" />
-  <PokemonOpciones :listado="pk" />
+  <PokemonImagen :pokemonID="5" :showPokemon="false" />
+  <PokemonOpciones />
 </template>
 
 <script>
 import PokemonImagen from "../components/PokemonImagen.vue";
 import PokemonOpciones from "../components/PokemonOpciones.vue";
 
-import obtenerIdPokemonFachada from "../helpers/pokemonHelpers.js";
-
-const pokemons = await obtenerIdPokemonFachada();
+import getPokemonsFachada  from "../helpers/pokemonHelpers.js";
 
 export default {
   components: {
@@ -18,23 +16,16 @@ export default {
     PokemonOpciones,
   },
 
-  data() {
-    return {
-      pk: pokemons,
-    };
-  },
   methods: {
-    obtenerNumerosAleatorios() {
-      return Math.floor(Math.random() * 4);
+    async construirLoad() {
+      const arrayPokemons = await getPokemonsFachada ();
+      console.log("Usando el componente de arreglos -> " + arrayPokemons);
     },
-    
   },
-  computed: {
-      mandarfoto() {
-        return  pokemons[this.obtenerNumerosAleatorios()].valor;
-      
-      },
-    },
+  mounted() {
+    console.log("se monto el componente pokemon page");
+    this.construirLoad();
+  },
 };
 </script>
 
