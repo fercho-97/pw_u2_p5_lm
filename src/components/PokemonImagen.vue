@@ -53,7 +53,10 @@ img {
   height: 200px;
   position: absolute;
   right: 42%;
+ 
 }
+
+
 .imagenes-container {
   height: 200px;
 }

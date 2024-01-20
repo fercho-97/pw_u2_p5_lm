@@ -6,31 +6,34 @@
   <h2>Titulo en padre</h2>
    <Pregunta />
    -->
-  <div >
+ 
     <div class="container" v-if="mostrarJuego">
       <h1>Casino Pokemon</h1>
       <h2>Puntaje:{{ puntaje }}</h2>
       <h2>Intentos:{{ intento }}</h2>
 
-      <Imagen :texto="texto1" :urlImg="url1" />
-      <Imagen :texto="texto2" :urlImg="url2" />
-      <Imagen :texto="texto3" :urlImg="url3" />
+      <div class="consola">
+        <Imagen :texto="texto1" :urlImg="url1" />
+        <Imagen :texto="texto2" :urlImg="url2" />
+        <Imagen :texto="texto3" :urlImg="url3" />
+      </div>
+
       <button @click="jugar">JUGAR</button>
     </div>
 
-    <div v-if="mostrarGanador">
+    <div class="mensajewin" v-if="mostrarGanador">
       <h1>Puntaje: {{ puntaje }}</h1>
       <h1>Felicitaciones has ganado un premio de $10.000,00</h1>
       <button @click="reiniciar">Nuevo Juego</button>
     </div>
 
-    <div v-if="mostrarPerdedor">
+    <div class="mensajelose" v-if="mostrarPerdedor">
       <h1>Has utilizado tus 5 intentos</h1>
       <h1>El juego ha termindo, intentalo nuevamente</h1>
 
       <button @click="reiniciar">Nuevo Juego</button>
     </div>
-  </div>
+
 </template>
 
 <script>
@@ -103,7 +106,7 @@ export default {
         this.puntaje += 1;
       }
 
-      if (this.puntaje >= 10) {
+      if (this.puntaje >= 5) {
         this.mostrarGanador = true;
         this.mostrarJuego = false;
       }
@@ -149,6 +152,15 @@ export default {
   grid-template-columns: repeat(4, 200);
   justify-content: center;
   align-content: center;
+  text-align: center;
+}
+
+.consola{
+display: flex;
+justify-content: center;
+  align-content: center;
+ grid-column: span 4;
+
 }
 
 h1 {
@@ -156,5 +168,20 @@ h1 {
 }
 h2 {
   grid-column: span 2;
+  width: 400px;
 }
+
+button {
+  grid-column: span 4;
+  margin: 25px 250px;
+}
+
+.mensajelose{
+  color: red;
+}
+
+.mensajewin{
+  color: blue;
+}
+
 </style>

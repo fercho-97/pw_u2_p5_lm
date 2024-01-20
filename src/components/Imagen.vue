@@ -1,34 +1,36 @@
 <template>
   <div class="container">
     <img :src="urlImg" alt="no se puede" />
-    <label for="">  {{texto}}</label>
+    <label for=""> {{ texto }}</label>
+    <div class="txt"></div>
   </div>
 </template>
 
 <script>
 export default {
-
-props:{
-    texto:{
-        type: String,
-
-
+  props: {
+    texto: {
+      type: String,
     },
-    urlImg:{
-        type:String,
+    urlImg: {
+      type: String,
     },
-
-},
-
+  },
 };
 </script>
 
 <style>
 
-img{
+.container{
 
-width: 200px;
-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 
+img {
+  width: 200px;
+  height: 300px;
+  margin: 0px 20px;
 }
 </style>
