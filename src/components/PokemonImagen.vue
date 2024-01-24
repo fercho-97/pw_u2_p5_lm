@@ -1,6 +1,7 @@
 <template>
 
- <img
+<div class="uy">
+<img
       :src="imagenFuente"
       alt="No se puede visualizar"
       class="ocultar"
@@ -16,6 +17,9 @@
 
    
   </div>
+
+</div>
+ 
 </template>
 
 <script>
@@ -53,9 +57,15 @@ img {
   height: 200px;
   position: absolute;
   right: 42%;
+
 }
 .imagenes-container {
   height: 200px;
+}
+
+.uy{
+
+  margin-bottom: 20px;
 }
 
 </style>

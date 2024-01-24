@@ -1,13 +1,36 @@
 <template>
-  <h1 v-if="!pokemonGanador">Espere porfavor</h1>
-  <div v-else>
-    <h1>Adivina el pokemon</h1>
-    <PokemonImagen
-      :pokemonID="pokemonGanador.id"
-      :showPokemon="mostrarPokemon"
-    />
-    <PokemonOpciones :pokemons="pokemonArray" @selecciono="revisarClick($event)" />
+  <div class="container">
+    <div v-if="juego">
+      <h1 v-if="!pokemonGanador">Espere porfavor</h1>
+      <div v-else>
+        <h1>Adivina el pokemon</h1>
+        <PokemonImagen
+          :pokemonID="pokemonGanador.id"
+          :showPokemon="mostrarPokemon"/>
+
+        <PokemonOpciones
+          :pokemons="pokemonArray"
+          @selecciono="revisarClick($event)"
+        />
+      </div>
+    </div>
   </div>
+
+  <div class="win" v-if="win">
+      <h1>Muy bien acertaste</h1>
+      <PokemonImagen
+          :pokemonID="pokemonGanador.id"
+          :showPokemon="mostrarPokemon"
+        />
+
+        <h2> {{nombre}}</h2>
+      <button @click="reiniciar">Reiniciar</button>
+    </div>
+
+    <div class="lose" v-if="lose">
+      <h1>Sigue intentando</h1>
+      <button @click="reiniciar">Reiniciar</button>
+    </div>
 </template>
 
 <script>
@@ -55,16 +78,30 @@ export default {
       const indiceGanador = Math.floor(Math.random() * 4);
       this.pokemonGanador = this.pokemonArray[indiceGanador];
     },
+    reiniciar() {
+      this.cargaInicial();
+      this.pokemonArray = [];
+      this.pokemonGanador = null;
+      this.mostrarPokemon = false;
+      this.win = false;
+      this.lose = false;
+      this.juego = true;
+    },
 
     revisarClick(datoRecibido) {
       console.log("Dio click y reporto desde el padre");
       console.log(datoRecibido);
-      
 
-      if(this.pokemonGanador.id===datoRecibido.id){
-        this.mostrarPokemon= true
-        console.log()
+      if (this.pokemonGanador.id === datoRecibido.id) {
+        this.mostrarPokemon = true;
+        this.win = true;
+        this.nombre=this.pokemonGanador.nombre;
+        console.log();
+      } else {
+        this.lose = true;
+        
       }
+      this.juego = false;
     },
   },
 
@@ -73,10 +110,42 @@ export default {
       pokemonArray: [],
       pokemonGanador: null,
       mostrarPokemon: false,
+      nombre:"",
+      win: false,
+      lose: false,
+      juego: true,
     };
   },
 };
 </script>
 
 <style>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.win{
+
+color: green;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.lose{
+
+  color: red;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button{
+
+  font-size: 20px;
+
+  width: 100px;
+  height: 50px;
+}
+
+
 </style>

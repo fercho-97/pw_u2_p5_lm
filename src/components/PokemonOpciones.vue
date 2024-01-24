@@ -1,7 +1,7 @@
 <template>
   <div class="opciones-container">
     <ul>
-      <li v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit('selecciono', {id:pokemon.id, apellido: pokemon.nombre, hobby:'quemado'})">
+      <li v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit('selecciono', {id:pokemon.id, apellido: pokemon.nombre})">
         {{ pokemon.nombre }}
       </li>
 
@@ -43,5 +43,13 @@ li:hover {
 .opciones-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  align-content: center;
+
+}
+ul{
+
+  margin: 0px;
+  padding: 0px;
 }
 </style>
